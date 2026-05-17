@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="jumphigher"
-run/main_scene="uid://drv7k6bq321pk"
+run/main_scene="uid://c0sdvemm2rcnf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
