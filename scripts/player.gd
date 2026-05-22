@@ -9,6 +9,7 @@ const JUMP_VELOCITY = -310.0
 
 var double_jump = false
 var wall_climb = false
+var has_sword = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

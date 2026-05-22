@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://de1acknq1xndk" path="res://scenes/platform.tscn" id="6_ne2mo"]
 [ext_resource type="PackedScene" uid="uid://db74d0ejiajth" path="res://scenes/slime.tscn" id="7_ne2mo"]
 [ext_resource type="PackedScene" uid="uid://bbqeky2sb6qun" path="res://scenes/doublejump.tscn" id="8_6cvei"]
-[ext_resource type="Texture2D" uid="uid://c5fm0rce0hkq1" path="res://asset/sprites/sword.png" id="8_172wr"]
 [ext_resource type="PackedScene" uid="uid://bgyi3jnrr2sor" path="res://scenes/question.tscn" id="9_6cvei"]
 [ext_resource type="PackedScene" uid="uid://b7dh6t4kgerw7" path="res://scenes/mushroom.tscn" id="10_hey2k"]
+[ext_resource type="PackedScene" uid="uid://dr5y6prmqfvxf" path="res://scenes/sword.tscn" id="12_172wr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wo48x"]
 texture = ExtResource("2_pbc48")
@@ -385,9 +385,6 @@ _data = {
 &"move": SubResource("Animation_hey2k")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_172wr"]
-size = Vector2(137.84747, 352.52832)
-
 [node name="level2" type="Node2D" unique_id=1140074638]
 
 [node name="game manager" type="Node" parent="." unique_id=1346675284]
@@ -405,6 +402,7 @@ theme_override_font_sizes/font_size = 8
 text = "you collected 0 coins"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="game manager" unique_id=597192326]
 wait_time = 0.5
@@ -507,17 +505,8 @@ position = Vector2(168, 92)
 zoom = Vector2(4, 4)
 limit_bottom = 269
 
-[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=582729885]
-z_index = -1
-position = Vector2(8.000001, -4.999999)
-scale = Vector2(0.025727654, 0.025529861)
-texture = ExtResource("8_172wr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Sprite2D" unique_id=452646451]
-position = Vector2(9.642578, -29.377441)
-rotation = 0.78539807
-scale = Vector2(0.9999999, 0.99999976)
-shape = SubResource("RectangleShape2D_172wr")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player" unique_id=2052116930]
+remote_path = NodePath("../../sword")
 
 [node name="slime" parent="." unique_id=809995810 instance=ExtResource("7_ne2mo")]
 position = Vector2(626, -39)
@@ -529,6 +518,18 @@ position = Vector2(978, 127)
 position = Vector2(339, -34)
 
 [node name="Sprite2D" type="Sprite2D" parent="question" unique_id=1128014806]
+
+[node name="Label" type="Label" parent="question" unique_id=1096393275]
+offset_left = -44.0
+offset_top = -23.0
+offset_right = 45.0
+offset_bottom = -4.0
+theme_override_colors/font_color = Color(0.011764706, 0.14901961, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("2_y0kc7")
+theme_override_font_sizes/font_size = 8
+text = "for sword"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="mushroom" parent="." unique_id=1691786836 instance=ExtResource("10_hey2k")]
 position = Vector2(362, -423)
@@ -545,3 +546,7 @@ text = "twenty coins
 to win"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="sword" parent="." unique_id=535280113 instance=ExtResource("12_172wr")]
+visible = false
+position = Vector2(168, 92)
