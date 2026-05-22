@@ -92,7 +92,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_rojmm")
 }],
 "loop": true,
-"name": &"default",
+"name": &"ok",
 "speed": 8.0
 }]
 
@@ -203,6 +203,7 @@ script = ExtResource("1_i64fm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=698184511]
 sprite_frames = SubResource("SpriteFrames_ls27i")
+animation = &"ok"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202101066]

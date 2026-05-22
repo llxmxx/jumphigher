@@ -40,6 +40,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n6pvg"]
+size = Vector2(8, 11)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l8pv"]
 size = Vector2(8, 11)
 
@@ -49,6 +52,12 @@ script = ExtResource("1_n6pvg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2051938355]
 sprite_frames = SubResource("SpriteFrames_v5wyi")
 frame_progress = 0.44644755
+
+[node name="die" type="Area2D" parent="." unique_id=371529246]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="die" unique_id=1454633108]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_n6pvg")
 
 [node name="killzone" parent="." unique_id=1764382240 instance=ExtResource("2_n6pvg")]
 position = Vector2(0, 190)

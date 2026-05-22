@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bbqeky2sb6qun"]
+[gd_scene format=3 uid="uid://dc23fnacy80ku"]
 
-[ext_resource type="Script" uid="uid://72baqee0vi1s" path="res://scripts/doublejump.gd" id="1_alw63"]
-[ext_resource type="Texture2D" uid="uid://da3el57pltis4" path="res://asset/sprites/fruit.png" id="2_sjxje"]
-[ext_resource type="AudioStream" uid="uid://dmx28c06usw7v" path="res://asset/sounds/power_up.wav" id="3_alw63"]
+[ext_resource type="Script" uid="uid://ddkbnx84aceu" path="res://scripts/wallclimb.gd" id="1_mk3go"]
+[ext_resource type="Texture2D" uid="uid://da3el57pltis4" path="res://asset/sprites/fruit.png" id="2_ud8m0"]
+[ext_resource type="AudioStream" uid="uid://dmx28c06usw7v" path="res://asset/sounds/power_up.wav" id="3_qko61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_11l1o"]
 radius = 4.1231055
@@ -105,21 +105,22 @@ _data = {
 &"pickup": SubResource("Animation_d14el")
 }
 
-[node name="doublejump" type="Area2D" unique_id=1487874438]
+[node name="wallclimb" type="Area2D" unique_id=1487874438]
 collision_mask = 2
-script = ExtResource("1_alw63")
+script = ExtResource("1_mk3go")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592782529]
 position = Vector2(0, -2)
-texture = ExtResource("2_sjxje")
+texture = ExtResource("2_ud8m0")
 region_enabled = true
-region_rect = Rect2(0, 32, 16, 17)
+region_rect = Rect2(19, 32, 11, 17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202101066]
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_11l1o")
 
 [node name="pickupsound" type="AudioStreamPlayer2D" parent="." unique_id=2076469613]
-stream = ExtResource("3_alw63")
+stream = ExtResource("3_qko61")
 bus = &"sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1780935409]
