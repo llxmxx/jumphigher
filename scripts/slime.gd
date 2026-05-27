@@ -8,9 +8,9 @@ var kill = false
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var die: CollisionShape2D = $killzone/CollisionShape2D
-@onready var sword: Area2D = $"../sword"
 @onready var timer: Timer = $Timer
 @onready var collision: CollisionShape2D = $die/CollisionShape2D2
+@onready var sword: Area2D = $"../sword"
 
 func _process(delta: float) -> void:
 	if kill:

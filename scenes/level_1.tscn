@@ -490,6 +490,19 @@ to win"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label2" type="Label" parent="labels" unique_id=2131679436]
+offset_left = 413.0
+offset_top = -346.0
+offset_right = 516.0
+offset_bottom = -319.0
+theme_override_colors/font_color = Color(0.078431375, 0.59607846, 0.8627451, 1)
+theme_override_fonts/font = ExtResource("9_1s4pk")
+theme_override_font_sizes/font_size = 8
+text = "jump on top to 
+change level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="slime" parent="." unique_id=809995810 instance=ExtResource("7_6dial")]
 position = Vector2(760, -29)
 

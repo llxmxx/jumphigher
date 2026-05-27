@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://gu16gqbswou0"
 [autoload]
 
 Music="*uid://dxcnkjts67h6p"
+LevelChange="*uid://c0lduka4t8xd"
 
 [display]
 
