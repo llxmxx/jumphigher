@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bso2s1vqqjmmh"]
+
+[ext_resource type="Texture2D" uid="uid://da3el57pltis4" path="res://asset/sprites/fruit.png" id="1_lfepc"]
+[ext_resource type="Script" uid="uid://bkba6gtmobyq2" path="res://scripts/fruit.gd" id="1_yvtr8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yvtr8"]
+radius = 4.0
+height = 12.0
+
+[node name="fruit" type="Area2D" unique_id=1165324644]
+collision_mask = 2
+script = ExtResource("1_yvtr8")
+
+[node name="Fruit" type="Sprite2D" parent="." unique_id=1944322471]
+texture = ExtResource("1_lfepc")
+region_enabled = true
+region_rect = Rect2(20, 48, 9, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=464013391]
+position = Vector2(-0.5, 2)
+shape = SubResource("CapsuleShape2D_yvtr8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
