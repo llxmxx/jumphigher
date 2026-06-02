@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bso2s1vqqjmmh" path="res://scenes/fruit.tscn" id="13_q2dsb"]
 [ext_resource type="PackedScene" uid="uid://b7dh6t4kgerw7" path="res://scenes/mushroom.tscn" id="14_p3r0x"]
 [ext_resource type="PackedScene" uid="uid://b5wmdcnnu2uim" path="res://scenes/key.tscn" id="15_5xqnf"]
+[ext_resource type="PackedScene" uid="uid://bmbuxmr3o6cdb" path="res://scenes/merlin.tscn" id="16_una4e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wae8j"]
 texture = ExtResource("3_p6vls")
@@ -470,7 +471,7 @@ tile_set = SubResource("TileSet_ax3dk")
 
 [node name="player" parent="." unique_id=489825745 instance=ExtResource("5_ah8om")]
 z_index = 5
-position = Vector2(952, 32)
+position = Vector2(949, 27)
 
 [node name="Camera" type="Camera2D" parent="player" unique_id=1173411449]
 zoom = Vector2(4, 4)
@@ -585,3 +586,6 @@ position = Vector2(-270, -134)
 [node name="key" parent="." unique_id=1072152067 instance=ExtResource("15_5xqnf")]
 position = Vector2(1026, 12)
 collision_mask = 2
+
+[node name="merlin" parent="." unique_id=206972997 instance=ExtResource("16_una4e")]
+position = Vector2(1610, -247)
