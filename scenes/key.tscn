@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b5wmdcnnu2uim"]
+
+[ext_resource type="Texture2D" uid="uid://g4lbpscre7ec" path="res://asset/sprites/key.png" id="1_fttkb"]
+[ext_resource type="Script" uid="uid://pyuaadw7kjcm" path="res://scripts/key.gd" id="2_wy8tx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brs3p"]
+size = Vector2(4.949748, 17.071068)
+
+[node name="key" type="Area2D" unique_id=1072152067]
+visible = false
+script = ExtResource("2_wy8tx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1068764641]
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.2, 0.17619048)
+texture = ExtResource("1_fttkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=826399741]
+position = Vector2(-1.2855337, 0.78553367)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_brs3p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
