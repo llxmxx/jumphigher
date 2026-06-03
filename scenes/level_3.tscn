@@ -570,11 +570,16 @@ position = Vector2(498, -6)
 [node name="coin6" parent="coins" unique_id=328209132 instance=ExtResource("10_vcx5n")]
 position = Vector2(385, -7)
 
+[node name="markers" type="Node" parent="." unique_id=488402453]
+
+[node name="leftMarker" type="Marker2D" parent="markers" unique_id=943378278]
+position = Vector2(1003, 13)
+
+[node name="rightMarker" type="Marker2D" parent="markers" unique_id=38994189]
+position = Vector2(1289, 14)
+
 [node name="doublejump" parent="." unique_id=1487874438 instance=ExtResource("8_wae8j")]
 position = Vector2(98, 159)
-
-[node name="dragon" parent="." unique_id=920056725 instance=ExtResource("9_ha73p")]
-position = Vector2(1011, 9)
 
 [node name="fruit" parent="." unique_id=1165324644 instance=ExtResource("13_q2dsb")]
 z_index = 6
@@ -588,4 +593,7 @@ position = Vector2(1026, 12)
 collision_mask = 2
 
 [node name="merlin" parent="." unique_id=206972997 instance=ExtResource("16_una4e")]
-position = Vector2(1610, -247)
+position = Vector2(1617, -247)
+
+[node name="dragon" parent="." unique_id=553219670 instance=ExtResource("9_ha73p")]
+position = Vector2(1010, 9)

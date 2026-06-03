@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://df0a0lgd6dw3o" path="res://asset/sprites/merlin_.png" id="1_rvmck"]
 [ext_resource type="Texture2D" uid="uid://d341n18f056tw" path="res://asset/sprites/staff_ [merlin].png" id="2_gwtk2"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwtk2"]
+size = Vector2(59, 20)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f0d1c"]
 atlas = ExtResource("1_rvmck")
 region = Rect2(0, 192, 32, 32)
@@ -207,44 +210,51 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aa30f"]
 size = Vector2(8, 15)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwtk2"]
+atlas = ExtResource("2_gwtk2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxkut"]
+atlas = ExtResource("2_gwtk2")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa30f"]
+atlas = ExtResource("2_gwtk2")
+region = Rect2(64, 64, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_os88a"]
 atlas = ExtResource("2_gwtk2")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_54pfj"]
-atlas = ExtResource("2_gwtk2")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f8fe8"]
-atlas = ExtResource("2_gwtk2")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_til8k"]
-atlas = ExtResource("2_gwtk2")
-region = Rect2(64, 32, 32, 32)
+region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hmsw6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gwtk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxkut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa30f")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_os88a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_54pfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f8fe8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_til8k")
 }],
 "loop": false,
-"name": &"default",
+"name": &"magic",
 "speed": 5.0
 }]
 
-[node name="merlin" type="Area2D" unique_id=595899035]
+[node name="merlin" type="Node2D" unique_id=1956300375]
 script = ExtResource("1_gwtk2")
+
+[node name="trigger" type="Area2D" parent="." unique_id=708199912]
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trigger" unique_id=928205235]
+position = Vector2(-23.5, -2)
+shape = SubResource("RectangleShape2D_gwtk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=645820936]
 visible = false
@@ -253,7 +263,9 @@ animation = &"idle"
 frame = 1
 frame_progress = 0.2910754
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1609305091]
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D" unique_id=1745340956]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D" unique_id=1609305091]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_aa30f")
 
@@ -261,8 +273,12 @@ shape = SubResource("RectangleShape2D_aa30f")
 visible = false
 position = Vector2(-8, 0)
 sprite_frames = SubResource("SpriteFrames_hmsw6")
+animation = &"magic"
 frame = 3
 frame_progress = 1.0
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[node name="Timer" type="Timer" parent="." unique_id=596472288]
+wait_time = 5.0
+
+[connection signal="area_entered" from="trigger" to="." method="_on_trigger_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
