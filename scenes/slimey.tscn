@@ -1,7 +1,24 @@
 [gd_scene format=3 uid="uid://b2kkbmbef5r6o"]
 
 [ext_resource type="Texture2D" uid="uid://ctaiyqnp0mka3" path="res://asset/sprites/slime/slime_purple.png" id="1_dpp58"]
+[ext_resource type="Script" uid="uid://dpsp0at68dxc5" path="res://scripts/slimey.gd" id="1_xtxdl"]
 [ext_resource type="PackedScene" uid="uid://dgypcq1jbl4gq" path="res://scenes/killzone.tscn" id="2_xtxdl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o333g"]
+atlas = ExtResource("1_dpp58")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgejl"]
+atlas = ExtResource("1_dpp58")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtujv"]
+atlas = ExtResource("1_dpp58")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13qfs"]
+atlas = ExtResource("1_dpp58")
+region = Rect2(72, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qs2m"]
 atlas = ExtResource("1_dpp58")
@@ -23,6 +40,23 @@ region = Rect2(72, 24, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_o333g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgejl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtujv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13qfs")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3qs2m")
 }, {
 "duration": 1.0,
@@ -40,7 +74,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgejl"]
-size = Vector2(8, 11)
+size = Vector2(10, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtxdl"]
+size = Vector2(8, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qs2m"]
+size = Vector2(6, 1)
 
 [sub_resource type="Animation" id="Animation_dpp58"]
 length = 0.001
@@ -104,14 +144,15 @@ _data = {
 &"move": SubResource("Animation_xtxdl")
 }
 
-[node name="slimey" type="Node2D" unique_id=118613263]
+[node name="slimey" type="Node2D" unique_id=50845853]
 position = Vector2(307, 9)
+script = ExtResource("1_xtxdl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1257570995]
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_o333g")
-animation = &"idle"
+animation = &"die"
 autoplay = "idle"
-frame_progress = 0.96370417
 
 [node name="killzone" parent="." unique_id=1764382240 instance=ExtResource("2_xtxdl")]
 position = Vector2(0, 190)
@@ -120,6 +161,22 @@ position = Vector2(0, 190)
 position = Vector2(0, -184.5)
 shape = SubResource("RectangleShape2D_tgejl")
 
+[node name="diearea" type="Area2D" parent="." unique_id=3725020]
+z_index = 1
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="diearea" unique_id=495261217]
+shape = SubResource("RectangleShape2D_xtxdl")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1915918280]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1538451203]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3qs2m")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1488425500]
 libraries/ = SubResource("AnimationLibrary_3qs2m")
 autoplay = &"move"
+
+[connection signal="body_entered" from="diearea" to="." method="_on_diearea_body_entered"]

@@ -5,7 +5,7 @@ extends Node2D
 @onready var staff: AnimatedSprite2D = $staff
 @onready var trigger: Area2D = $trigger
 @onready var timer: Timer = $Timer
-
+@onready var player: CharacterBody2D = $"../player"
 
 func _on_trigger_area_entered(area: Area2D) -> void:
 	print(area.name)
@@ -17,6 +17,7 @@ func _on_trigger_area_entered(area: Area2D) -> void:
 		staff.visible = true
 		staff.play("magic")
 		animated_sprite_2d.play("idle")
+		player.kills = true
 		timer.start()
 
 

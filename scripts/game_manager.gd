@@ -16,5 +16,5 @@ func change_level():
 
 func _on_timer_timeout() -> void:
 	LevelChange.lev+=1
-	LevelChange.winscore+=10
+	LevelChange.winscore = 10*LevelChange.lev
 	get_tree().change_scene_to_file("res://scenes/level_"+str(LevelChange.lev)+".tscn")
