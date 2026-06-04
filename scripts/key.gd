@@ -12,6 +12,8 @@ var ypos = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if LevelChange.keyused == true:
+		queue_free()
 	if dragon_carry:
 		global_position = dragon.global_position + Vector2(xpos, ypos)
 	else:

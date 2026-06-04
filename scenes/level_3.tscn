@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b7dh6t4kgerw7" path="res://scenes/mushroom.tscn" id="14_p3r0x"]
 [ext_resource type="PackedScene" uid="uid://b5wmdcnnu2uim" path="res://scenes/key.tscn" id="15_5xqnf"]
 [ext_resource type="PackedScene" uid="uid://bmbuxmr3o6cdb" path="res://scenes/merlin.tscn" id="16_una4e"]
+[ext_resource type="FontFile" uid="uid://ddv4lqdmtq0us" path="res://asset/fonts/PixelOperator8.ttf" id="17_ema3p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_una4e"]
 texture = ExtResource("3_p6vls")
@@ -471,7 +472,7 @@ tile_set = SubResource("TileSet_ax3dk")
 
 [node name="player" parent="." unique_id=489825745 instance=ExtResource("5_ah8om")]
 z_index = 5
-position = Vector2(236, 30)
+position = Vector2(1497, -207)
 
 [node name="Camera" type="Camera2D" parent="player" unique_id=1173411449]
 zoom = Vector2(4, 4)
@@ -482,6 +483,7 @@ limit_bottom = 245
 
 [node name="slimey" parent="." unique_id=118613263 instance=ExtResource("6_p6vls")]
 z_index = 1
+position = Vector2(306, 8)
 rotation = 6.2831855
 
 [node name="steps" type="Node" parent="." unique_id=1422300909]
@@ -626,17 +628,23 @@ position = Vector2(385, -7)
 [node name="markers" type="Node" parent="." unique_id=488402453]
 
 [node name="leftMarker" type="Marker2D" parent="markers" unique_id=943378278]
-position = Vector2(1003, 13)
+position = Vector2(1010, 12)
 
 [node name="rightMarker" type="Marker2D" parent="markers" unique_id=38994189]
-position = Vector2(1289, 14)
+position = Vector2(1282, 13)
+
+[node name="leftMarkerSlime" type="Marker2D" parent="markers" unique_id=1687173368]
+position = Vector2(306, 12)
+
+[node name="rightMarkerSlime" type="Marker2D" parent="markers" unique_id=951083179]
+position = Vector2(546, 11)
 
 [node name="doublejump" parent="." unique_id=1196949171 instance=ExtResource("8_wae8j")]
 position = Vector2(98, 159)
 
 [node name="fruit" parent="." unique_id=1165324644 instance=ExtResource("13_q2dsb")]
 z_index = 6
-position = Vector2(764, -92)
+position = Vector2(763, -90)
 
 [node name="mushroom" parent="." unique_id=1387367152 instance=ExtResource("14_p3r0x")]
 position = Vector2(-270, -134)
@@ -650,3 +658,82 @@ position = Vector2(1617, -247)
 
 [node name="dragon" parent="." unique_id=553219670 instance=ExtResource("9_ha73p")]
 position = Vector2(1010, 9)
+
+[node name="labels" type="Node" parent="." unique_id=899649690]
+
+[node name="Label" type="Label" parent="labels" unique_id=312719645]
+offset_left = -109.0
+offset_top = 121.0
+offset_right = -23.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.98039216, 0.827451, 0.7019608, 1)
+theme_override_fonts/font = ExtResource("2_ah8om")
+theme_override_font_sizes/font_size = 8
+text = "thirty coins
+to win"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="labels" unique_id=166070178]
+offset_left = 846.0
+offset_top = -202.0
+offset_right = 966.0
+offset_bottom = -183.0
+theme_override_colors/font_color = Color(1, 0.8235294, 0.2, 1)
+theme_override_fonts/font = ExtResource("17_ema3p")
+theme_override_font_sizes/font_size = 8
+text = "the dragon
+sleeps after eating"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label5" type="Label" parent="labels" unique_id=1960206565]
+offset_left = 1430.0
+offset_top = -231.0
+offset_right = 1553.0
+offset_bottom = -212.0
+theme_override_colors/font_color = Color(1, 0.8235294, 0.2, 1)
+theme_override_fonts/font = ExtResource("17_ema3p")
+theme_override_font_sizes/font_size = 8
+text = "some guy over here
+wants a key"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label6" type="Label" parent="labels" unique_id=796157605]
+offset_left = 1494.0
+offset_top = -290.0
+offset_right = 1695.0
+offset_bottom = -251.0
+theme_override_colors/font_color = Color(0.98039216, 0.827451, 0.7019608, 1)
+theme_override_fonts/font = ExtResource("17_ema3p")
+theme_override_font_sizes/font_size = 8
+text = "u gave me a key. for that..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="labels" unique_id=919737644]
+offset_left = 1034.0
+offset_top = -25.0
+offset_right = 1210.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0.9764706, 0.6117647, 0.043137256, 1)
+theme_override_fonts/font = ExtResource("17_ema3p")
+theme_override_font_sizes/font_size = 8
+text = "he might have smth u want..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="labels" unique_id=1533139471]
+offset_left = -261.0
+offset_top = -372.0
+offset_right = -221.0
+offset_bottom = -353.0
+theme_override_colors/font_color = Color(0.95686275, 0.6, 0.5647059, 1)
+theme_override_fonts/font = ExtResource("2_ah8om")
+theme_override_font_sizes/font_size = 8
+text = "jump!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="game manager/Timer" to="game manager" method="_on_timer_timeout"]

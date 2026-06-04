@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 80
+var speed = 60
 var direction = 1
 var asleep = false
 
@@ -29,6 +29,7 @@ func _on_detection_area_area_entered(area: Area2D) -> void:
 	if area==fruit and not fruit.carry:
 		animated_sprite_2d.play("sleep")
 		asleep = true
-		key.visible = true
+		if not LevelChange.keyused:
+			key.visible = true
 		collision_shape_2d.set_deferred("disabled", true)
 		fruit.ate()
