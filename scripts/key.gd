@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var dragon: CharacterBody2D = $"../dragon"
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var label_5: Label = $"../labels/Label5"
 
 var dragon_carry = true
 var carrier = null
@@ -13,6 +14,7 @@ var ypos = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if LevelChange.keyused == true:
+		label_5.visible = false
 		queue_free()
 	if dragon_carry:
 		global_position = dragon.global_position + Vector2(xpos, ypos)
