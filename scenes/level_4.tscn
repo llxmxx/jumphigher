@@ -392,3 +392,17 @@ limit_left = -10000006
 limit_top = -10000005
 limit_right = 9999994
 limit_bottom = 245
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=244053374]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=710252804]
+offset_left = 1.0
+offset_top = -101.0
+offset_right = 1161.0
+offset_bottom = 553.0
+theme_override_colors/font_color = Color(0.011764706, 0.14901961, 0.34901962, 1)
+theme_override_fonts/font = ExtResource("2_ycko3")
+theme_override_font_sizes/font_size = 48
+text = "YOU WIN!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
